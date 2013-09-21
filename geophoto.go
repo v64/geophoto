@@ -99,9 +99,13 @@ func (geo *GeoPhoto) Unix() int64 {
 }
 
 func DirGeoPhotoDataUnique(dir string) map[int]GeoPhoto {
-	// Re-init the walk map
+	// Re-init the globalwalk map
 	GeoPhotoDataWalk = make(map[int]GeoPhoto)
+
+	// This is modifying GeoPhotoDataWalk globally, as we can't pass anything
+	// additional into walk
 	filepath.Walk(dir, walk)
+
 	return GeoPhotoDataWalk
 }
 
