@@ -57,6 +57,7 @@ func (geo *GeoPhoto) StringDegrees() string {
 	latitude := sexToDec(geo.GPSLatitude.Rat(0), geo.GPSLatitude.Rat(1), geo.GPSLatitude.Rat(2), geo.GPSLatitudeRef.StringVal())
 	longitude := sexToDec(geo.GPSLongitude.Rat(0), geo.GPSLongitude.Rat(1), geo.GPSLongitude.Rat(2), geo.GPSLongitudeRef.StringVal())
 
+	// http://stackoverflow.com/questions/7167604/how-accurately-should-i-store-latitude-and-longitude
 	return latitude.FloatString(6) + "," + longitude.FloatString(6)
 }
 
@@ -143,6 +144,5 @@ func sexToDec(deg, min, sec *big.Rat, dir string) *big.Rat {
 		deg.Neg(deg)
 	}
 
-	// http://stackoverflow.com/questions/7167604/how-accurately-should-i-store-latitude-and-longitude
 	return deg
 }
