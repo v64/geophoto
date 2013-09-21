@@ -98,7 +98,7 @@ func (geo *GeoPhoto) Unix() int64 {
 	return t.Unix()
 }
 
-func DirGeoPhotoData(dir string) map[int]GeoPhoto {
+func DirGeoPhotoDataUnique(dir string) map[int]GeoPhoto {
 	// Re-init the walk map
 	GeoPhotoDataWalk = make(map[int]GeoPhoto)
 	filepath.Walk(dir, walk)
