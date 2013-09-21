@@ -134,6 +134,7 @@ func walk(path string, fi os.FileInfo, err error) error {
 }
 
 func sexToDec(deg, min, sec *big.Rat, dir string) *big.Rat {
+	// sexagesimal (base 60) to decimal
 	// https://imm.dtf.wa.gov.au/helpfiles/Latitude_Longitude_conversion_hlp.htm
 
 	deg.Add(deg, min.Quo(min, big.NewRat(60, 1)))
