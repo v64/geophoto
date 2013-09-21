@@ -1,7 +1,6 @@
 package geophoto
 
 import (
-	"fmt"
 	"github.com/rwcarlsen/goexif/exif"
 	"github.com/rwcarlsen/goexif/tiff"
 	"math/big"
@@ -97,10 +96,6 @@ func (geo *GeoPhoto) Unix() int64 {
 
 	t := time.Date(year, monthConstants[month], day, hour, minute, second, 0, loc)
 	return t.Unix()
-}
-
-func (geo *GeoPhoto) StreetViewUrl() string {
-	return fmt.Sprintf("https://maps.googleapis.com/maps/api/streetview?location=%s&size=640x640&fov=120&heading=0&sensor=false", geo.StringDegrees())
 }
 
 func DirGeoPhotoData(dir string) map[int]GeoPhoto {
